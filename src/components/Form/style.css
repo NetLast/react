@@ -1,0 +1,29 @@
+.todo__container {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.todo__input {
+  flex-grow: 1;
+  padding: 10px;
+  margin-right: 16px;
+  border: 1px solid #c9c9c9;
+  outline-color: aquamarine;
+}
+
+.todo__input[placeholder] {
+  font-size: 16px;
+}
+
+.todo__add {
+  background-color: aquamarine;
+  border: 1px solid #c9c9c9;
+  color: #777777;
+}
+.todo__add:hover {
+  background-color: #33ffbb;
+}
+
+.todo__add:active {
+  background-color: #00cc88;
+}

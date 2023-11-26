@@ -1,0 +1,13 @@
+.todo__fetch {
+  background-color: aquamarine;
+  border: 1px solid #c9c9c9;
+  color: #777777;
+}
+
+.todo__fetch:hover {
+  background-color: #33ffbb;
+}
+
+.todo__fetch:active {
+  background-color: #00cc88;
+}
