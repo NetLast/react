@@ -1,38 +1,98 @@
-.App {
+* {
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  color: #777777;
+}
+
+button {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  border: 1px solid #c9c9c9;
+}
+
+.header {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.todo {
+  padding: 32px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo__container {
   display: flex;
-  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.todo__input {
+  flex-grow: 1;
+  padding: 10px;
+  margin-right: 16px;
+  border: 1px solid #c9c9c9;
+  outline-color: aquamarine;
+}
+
+.todo__input[placeholder] {
+  font-size: 16px;
+}
+
+.todo__add,
+.todo__fetch {
+  background-color: aquamarine;
+  border: 1px solid #c9c9c9;
+  color: #777777;
+}
+.todo__add:hover,
+.todo__fetch:hover {
+  background-color: #33ffbb;
+}
+
+.todo__add:active,
+.todo__fetch:active {
+  background-color: #00cc88;
+}
+
+.todo__list {
+  margin-top: 32px;
+  padding: 0;
+}
+
+.todo__item {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 16px;
+  border: 1px solid #c9c9c9;
+  margin-bottom: 16px;
 }
 
-.App-link {
-  color: #61dafb;
+.todo__checkbox {
+  margin-right: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo__item p {
+  flex-grow: 1;
+}
+
+.todo__remove {
+  border: 1px solid #910000;
+  background-color: #de0000;
+  color: #ffffff;
+}
+
+.todo__remove:hover {
+  background-color: #ba0000;
+}
+
+.todo__remove:active {
+  background-color: #910000;
 }
