@@ -1,28 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "../Form";
-import FetchButton from "../FetchButton";
 import List from "../List";
 
-import './style.css';
-
-const todosDefault = [
-  {
-    id: 1,
-    title: 'Task number one',
-    completed: false,
-  }, {
-    id: 2,
-    title: 'Task number two',
-    completed: true,
-  }, {
-    id: 3,
-    title: 'Task number three',
-    completed: false,
-  }
-]
+import "./style.css";
 
 const Main = () => {
-  const [todos, setTodos] = useState(todosDefault);
+  const [todos, setTodos] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch('https://run.mocky.io/v3/b39874f6-e60f-488f-b5f1-540db082f358', {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then((response) => {
+      if (response.status >= 200 && response.status < 300) {
+        return response.json();
+      } else {
+        throw new Error(response.statusText);
+      }
+    }).then((data) => {
+      setTodos(data);
+      setLoading(false);
+    }).catch((err) => {
+      console.log('Error: ', err);
+    });
+  }, []);
 
   const onSaveHandler = (value) => {
     const item = {
@@ -59,9 +64,13 @@ const Main = () => {
     <main className="todo">
       <Form onSave={onSaveHandler} />
 
-      <FetchButton />
-
-      <List todos={todos} onCheckToggleById={onCheckToggleById} onDeleteTodoById={onDeleteTodoById} />
+      {
+        loading ? (
+          <div>Loading...</div>
+        ) : (
+          <List todos={todos} onCheckToggleById={onCheckToggleById} onDeleteTodoById={onDeleteTodoById} />
+        )
+      }
     </main>
   )
 }
