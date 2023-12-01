@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Form from "../Form";
-import List from "../List";
+import Form from "../../components/Form";
+import List from "../../components/List";
 
 import "./style.css";
 

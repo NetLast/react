@@ -1,6 +1,13 @@
 import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import Main from "./components/Main";
+import Main from "./pages/Main";
+import ItemDetails from "./pages/ItemDetails";
+
+const router = createBrowserRouter([
+  { path: "/", element: <Main /> },
+  { path: "/detail/:id", element: <ItemDetails/> }
+]);
 
 const App = () => {
   return (
@@ -9,7 +16,7 @@ const App = () => {
         <h1>Todo List</h1>
       </header>
 
-      <Main />
+      <RouterProvider router={router} />
 
     </div>
   );

@@ -10,6 +10,7 @@ const List = ({todos, onCheckToggleById, onDeleteTodoById}) => {
       { todos.map((todo) => {
         return (
           <Item
+            id={todo.id}
             key={todo.id}
             description={todo.title}
             completed={todo.completed}
