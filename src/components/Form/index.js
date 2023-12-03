@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { onTodoCreateAction } from "../../store/actions";
+
 import "./style.css";
 
-const Form = ({onSave}) => {
+const Form = () => {
+  const dispatch = useDispatch();
+
   const [ displayForm, setDisplayForm ] = useState(false);
   const [ todo, setTodo ] = useState('default todo');
 
@@ -15,7 +21,7 @@ const Form = ({onSave}) => {
 
   const onCreateTodoHandler = (event) => {
     event.preventDefault();
-    onSave(todo);
+    dispatch(onTodoCreateAction(todo));
   }
 
   if (displayForm) {

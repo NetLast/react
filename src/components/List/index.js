@@ -1,9 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
 import Item from "../Item";
 
 import "./style.css";
 
-const List = ({todos, onCheckToggleById, onDeleteTodoById}) => {
+const List = () => {
+  const todos = useSelector((state) => {
+    return state.todos;
+  });
 
   return (
     <ul className="todo__list">
@@ -14,8 +19,6 @@ const List = ({todos, onCheckToggleById, onDeleteTodoById}) => {
             key={todo.id}
             description={todo.title}
             completed={todo.completed}
-            onCheckToggle={() => onCheckToggleById(todo.id)}
-            deleteTodo={() => onDeleteTodoById(todo.id)}
           />
         )
       }) }
